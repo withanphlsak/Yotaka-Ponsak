@@ -1,0 +1,394 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #a83c0c;
+
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+.nav-bar {
+    background-color: #5c0602;
+    height: 3.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 2rem;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    font-family: 'Prompt', sans-serif;
+}
+
+/* .logo-link {
+    text-decoration: none;
+    display: flex;
+    margin-left: 0.375rem;
+}
+
+.logo {
+    color: #ffffff;
+    font-weight: bold;
+    font-family: 'Prompt', sans-serif;
+}
+
+.logo-text {
+    color: #ede9e9;
+    font-family: 'Prompt', sans-serif;
+
+} */
+
+.link-nav {
+    color: #f8d6b1;
+    display: flex;
+    margin-left: 5rem;
+}
+
+.link-nav1 {
+    text-decoration: none;
+    padding: 0.625rem 1.25rem;
+    font-family: 'Prompt', sans-serif;
+    font-weight: bold;
+    color: #f8d6b1;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.link-nav1:hover {
+    background-color: #ec4706;
+    color: #e7f5e4;
+    border-radius: 0.3125rem;
+    transition: 0.3s;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 0.3125rem;
+    background: none;
+    border: none;
+}
+
+.menu-toggle span {
+    width: 1.5625rem;
+    height: 0.1875rem;
+    background-color: #fff;
+    border-radius: 0.1875rem;
+    transition: 0.3s;
+}
+
+.present {
+    background-color: #f38b6e;
+    padding: clamp(2rem, 5vw, 5rem) clamp(1rem, 6vw, 10rem);
+    margin: 0.5rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(1rem, 3vw, 3rem);
+    font-family: 'Noto Sans Thai Looped', sans-serif;
+}
+
+.first-name {
+    flex: 1 1 0;
+    min-width: 0;
+    font-size: clamp(2.5rem, 7.5vw, 9rem);
+    line-height: 1.25;
+    color: #f9e4cd;
+    white-space: nowrap;      /* ชื่อและนามสกุลอยู่แถวเดียวเสมอ */
+}
+
+.last-name {
+    white-space: nowrap;      /* "พลศักดิ์" บรรทัดเดียว */
+}
+
+.about {
+    font-size: clamp(0.9rem, 5.2vw, 2rem);
+    line-height: 1.5;
+    white-space: normal;      /* ข้อความอธิบายตัดบรรทัดได้ตามปกติ */
+}
+
+.profile {
+    flex: 0 0 clamp(9rem, 36%, 31.25rem);
+    margin-right: 2rem;       /* รูปห่างขอบขวา 2rem ทุกขนาดจอ */
+}
+
+.profile img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+}
+
+/* จอเล็ก: ข้อความอยู่บน รูปอยู่ล่าง */
+@media (max-width: 767px) {
+    .present {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .first-name {
+        flex: none;
+        font-size: clamp(2.5rem, 13vw, 5rem);
+    }
+
+    .about {
+        font-size: clamp(0.9rem, 3.6vw, 1.4rem);
+    }
+
+    .profile {
+        flex: none;
+        width: auto;
+        max-width: 31.25rem;
+    }
+}
+
+.performance {
+    padding: 5rem 4rem;
+    font-size: 3rem;
+    font-family: 'Noto Sans Thai Looped', sans-serif;
+    color: #f9e4cd;
+}
+
+.in-performance-eng {
+    font-size: 2rem;
+    margin-top: -1rem;
+}
+
+.archi {
+    margin-top: 2rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* แบ่งเป็น 4 คอลัมน์เท่าๆ กัน */
+    grid-auto-rows: 150px;
+    /* กำหนดความสูงพื้นฐานของแต่ละแถว */
+    gap: 15px;
+    /* ระยะห่างระหว่างรูป */
+    cursor: pointer;
+}
+
+.archi2 {
+    margin-top: 5rem;
+}
+
+.gallery-grid2 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* แบ่งเป็น 4 คอลัมน์เท่าๆ กัน */
+    grid-auto-rows: 150px;
+    /* กำหนดความสูงพื้นฐานของแต่ละแถว */
+    gap: 15px;
+    /* ระยะห่างระหว่างรูป */
+    cursor: pointer;
+}
+
+/* สไตล์พื้นฐานของแต่ละกล่องรูปภาพ */
+.gallery-item {
+    background: #f4b97a;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid #a83c0c;
+    /* กรอบสีส้มอิฐตามธีม */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* ปรับรูปให้เต็มกรอบโดยไม่เสียสัดส่วน */
+    display: block;
+}
+
+.item-tall1 {
+    grid-row: span 3;
+}
+
+.item-tall {
+    grid-row: span 2;
+}
+
+.item-tall2 {
+    grid-row: span 2;
+}
+
+.item-normal {
+    grid-row: span 1;
+}
+
+
+
+
+.item-tall1-2 {
+    grid-row: span 1;
+}
+
+.item-tall-2 {
+    grid-row: span 2;
+}
+
+.item-tall2-2 {
+    grid-row: span 3;
+}
+
+.item-normal-2 {
+    grid-row: span 2;
+}
+
+.item-normal3-2 {
+    grid-row: span 4;
+}
+
+.modal {
+    display: none;
+    /* ซ่อนไว้ตั้งต้น */
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    /* พื้นหลังดำโปร่งแสง */
+    overflow-y: auto;
+    padding: 50px 20px;
+    /* เว้นขอบบนล่างเพื่อให้มีพื้นที่เลื่อน */
+    box-sizing: border-box;
+    backdrop-filter: blur(5px)
+}
+
+.modal-content {
+    display: block;
+    margin: auto;
+    /* จัดรูปให้อยู่กึ่งกลางแนวนอนอัตโนมัติ */
+    max-width: 90%;
+    max-height: 40rem;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    object-fit: contain;
+    animation: zoomIn 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.close-btn {
+    position: absolute;
+    top: -6px;
+    right: 35px;
+    color: #ffffff;
+    font-size: 4rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    user-select: none;
+}
+
+.close-btn:hover {
+    color: #f4b97a;
+}
+
+.descr {
+    margin-top: 5rem;
+    font-size: 3rem;
+    color: #fff;
+    text-align: center;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.is-job {
+    padding: 5rem 4rem;
+    font-family: 'Noto Sans Thai Looped', sans-serif;
+    font-size: 3rem;
+    color: #f9e4cd;
+}
+
+.job {
+    color: #f3cea8;
+    font-size: clamp(0.9rem, 5.2vw, 2rem);
+    white-space: normal;
+}
+
+.job2 {
+    font-size: clamp(0.9rem, 5.2vw, 2rem);
+    white-space: normal;
+    color: #f3cea8;
+}
+
+.contact {
+    padding: 5rem 4rem;
+    font-family: 'Noto Sans Thai Looped', sans-serif;
+    font-size: clamp(0.9rem, 5.2vw, 2rem);
+    color: #f9e4cd;
+}
+
+.link-facebook {
+    background-color: #ffffff;
+    border-radius: 2.5rem;
+    margin-top: 1.25rem;
+    margin-left: 0.625rem;
+}
+
+@media screen and (max-width: 599px) {
+    .gallery-grid,
+    .gallery-grid2 {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 22vw;
+        grid-auto-flow: dense;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .menu-toggle {
+        display: flex;
+        margin-left: auto;          /* ปุ่มอยู่ขวาสุดของแถบ nav */
+    }
+
+    .link-nav {
+        display: none;
+        position: absolute;
+        top: 3.75rem;               /* ต่อจากแถบ nav พอดี */
+        left: 0;
+        width: 100%;
+        background-color: #000000;
+        flex-direction: column;
+        align-items: center;
+        padding: 1.25rem 0;
+        border-bottom: 0.125rem solid #1abc1a;
+        margin-left: 0;             /* รีเซ็ต margin-left: 5rem ของกฎหลัก */
+        margin-right: 0;
+    }
+
+    .link-nav.active {
+        display: flex;
+    }
+
+    .link-nav1 {
+        padding: 0.9375rem;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
