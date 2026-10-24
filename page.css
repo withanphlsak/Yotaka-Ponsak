@@ -335,6 +335,13 @@ html {
     margin-left: 0.625rem;
 }
 
+.link-facebook2 {
+    background-color: #ffffff;
+    border-radius: 2.5rem;
+    margin-top: 0.25rem;
+    margin-left: 0.625rem;
+}
+
 @media screen and (max-width: 599px) {
     .gallery-grid,
     .gallery-grid2 {
@@ -357,11 +364,11 @@ html {
         top: 3.75rem;
         left: 0;
         width: 100%;
-        background-color: #000000;
+        background-color: #e07d37;
         flex-direction: column;
         align-items: center;
         padding: 1.25rem 0;
-        border-bottom: 0.125rem solid #1abc1a;
+        border-bottom: 0.125rem solid #5c0602;
         margin-left: 0;
         margin-right: 0;
     }
